@@ -1,5 +1,7 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.List;
+
 public class Film {
 	//FIELDS
 	private int id;
@@ -8,13 +10,15 @@ public class Film {
 	private int releaseYear;
 	private int languageId;
 	private int rentalDuration;
+	private double rentalRate;
 	private int length;
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private List<Actor> actorsInFilm;
 	
 	//CONSTRUCTORS
-	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
+	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration, double rentalRate,
 			int length, double replacementCost, String rating, String specialFeatures) {
 		super();
 		this.id = id;
@@ -23,6 +27,7 @@ public class Film {
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
 		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
 		this.length = length;
 		this.replacementCost = replacementCost;
 		this.rating = rating;
@@ -93,6 +98,20 @@ public class Film {
 	public void setSpecialFeatures(String specialFeatures) {
 		this.specialFeatures = specialFeatures;
 	}
+	public double getRentalRate() {
+		return rentalRate;
+	}
+	public void setRentalRate(double rentalRate) {
+		this.rentalRate = rentalRate;
+	}
+	public List<Actor> getActorsInFilm() {
+		return actorsInFilm;
+	}
+	public void setActorsInFilm(List<Actor> actorsInFilm) {
+		this.actorsInFilm = actorsInFilm;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -154,17 +173,16 @@ public class Film {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Film [id=").append(id).append(", title=").append(title).append(", description=")
-				.append(description).append(", releaseYear=").append(releaseYear).append(", languageId=")
-				.append(languageId).append(", rentalDuration=").append(rentalDuration).append(", length=")
-				.append(length).append(", replacementCost=").append(replacementCost).append(", rating=").append(rating)
-				.append(", specialFeatures=").append(specialFeatures).append("]");
-		return builder.toString();
+		return  id + ".) Title: " + title + "\nDescription: " + description + "\nRelease Year: " + releaseYear
+				+ ", Language ID: " + languageId + ", Rental Duration: " + rentalDuration + ", Rental Rate: " + rentalRate
+				+ ", Length: " + length + ", Replacement Cost: " + replacementCost + ", Rating: " + rating
+				+ ", Special Features: " + specialFeatures + "\nActors In Film: " + actorsInFilm + "\n";
 	}
+
+
+
 	
 	
 }
